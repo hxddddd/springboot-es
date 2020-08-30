@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理</title>
+    <script>
+        function toSubmit(methodName){
+            if ('get'==methodName){
+                location.href="/bookList";
+            } else{
+                document.getElementById("_method").value=methodName;
+                document.getElementById("bookForm").submit();
+            }
+        }
+    </script>
+</head>
+<body>
+<form  id="bookForm" action="/book" method="post">
+    <input type="hidden" id="_method" name="_method" value="post">
+    BookId<input type="text" name="bkId" th:value="${book.bkId}" value=""><br>
+    BookName<input type="text" name="bkName" th:value="${book.bkName}" value=""><br>
+    Author<input type="text" name="bkAuthor" th:value="${book.bkAuthor}" value=""><br>
+    Price<input type="text" name="bkPrice" th:value="${book.bkPrice}" value=""><br>
+    Desc<textarea name="bkDesc" th:value="${book.bkDesc}"></textarea><br>
+    <input type="button" value="添加" onclick="toSubmit('post')">
+    <input type="button" value="修改" onclick="toSubmit('put')">
+    <input type="button" value="删除" onclick="toSubmit('delete')">
+    <input type="button" value="查看列表" onclick="toSubmit('get')">
+</form>
+</body>
+</html>

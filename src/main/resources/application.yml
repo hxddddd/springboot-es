@@ -1,0 +1,12 @@
+server:
+  port: 8088
+spring:
+  data:
+    elasticsearch:
+      cluster-nodes: 127.0.0.1:9300
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+enable:
+  init: true

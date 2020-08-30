@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>图书列表</title>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>序号</th>
+        <th>书名</th>
+        <th>作者</th>
+        <th>价格</th>
+    </tr>
+    </thead>
+    <tr th:each="book,index:${bookList}">
+        <td th:text="${index.count}">序号</td>
+        <td th:text="${book.bkName}">书名</td>
+        <td ><a href="/book/1" th:href="@{/book/{bkId}(bkId=${book.bkId})}" th:text="${book.bkName}">书名</a></td>
+        <td th:text="${book.bkPrice}">价格</td>
+    </tr>
+</table>
+</body>
+</html>
